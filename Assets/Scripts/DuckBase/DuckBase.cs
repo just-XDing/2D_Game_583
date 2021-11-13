@@ -23,15 +23,16 @@ public class DuckBase : MonoBehaviour
     void Update()
     {
         Duck_RigBody.velocity = transform.right * Speed;
+        if (Health.getHealth() <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     public void takeHealth(int h)
     {
         Health.takeHealth(h);
-        if (Health.getHealth() <= 0)
-        {
-            Destroy(this);
-        }
+        
     }
 
     void OnCollisionEnter2D(Collision2D col)

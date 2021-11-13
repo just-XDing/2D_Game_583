@@ -9,13 +9,11 @@ using TMPro;
 public class PlayerTower : MonoBehaviour
 {
     private HealthBase Health;
-    public Button B_Tier1Summon;
 
     // Start is called before the first frame update
     void Start()
     {
         Health = new HealthBase(1000);
-        setupUserControls();
     }
 
     public void takeHealth(int h)
@@ -30,16 +28,5 @@ public class PlayerTower : MonoBehaviour
         {
             Destroy(this);
         }
-    }
-
-    void setupUserControls()
-    {
-        B_Tier1Summon = GameObject.Find("B_Tier1").GetComponent<Button>();
-        B_Tier1Summon.onClick.AddListener(OnClickSummonTier1);
-    }
-
-
-    void OnClickSummonTier1()
-    {
     }
 }

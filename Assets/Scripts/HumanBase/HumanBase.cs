@@ -9,6 +9,7 @@ public class HumanBase : MonoBehaviour
 
     public HealthBase Health;
     private float Speed;
+    private Vector2 ScreenBounds;
 
     // Start is called before the first frame update
     void Start()
@@ -17,21 +18,28 @@ public class HumanBase : MonoBehaviour
         //Set the speed of the GameObject
         Speed = 1.0f;
         Health = new HealthBase(30);
+        ScreenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+
+        if (this.gameObject == null)
+        {
+            Debug.Log("actual human : null");
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
         Human_RigBody.velocity = transform.right * Speed;
+        if (Health.getHealth() <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     public void takeHealth(int h)
     {
-        Health.takeHealth(h);
-        if (Health.getHealth() <= 0)
-        {
-            Destroy(this);
-        }
+        Health.takeHealth(4);
+        Debug.Log(Health.getHealth());
     }
 
     void OnCollisionEnter2D(Collision2D col)
