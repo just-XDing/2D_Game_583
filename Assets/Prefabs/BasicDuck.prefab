@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4278133075411872539}
   - component: {fileID: 1234669187400117385}
   - component: {fileID: 8555537890257629427}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BasicDuck
   m_TagString: Duck
   m_Icon: {fileID: 2800000, guid: 794bd6f695aad8243b48dc02968cc56c, type: 3}
@@ -29,7 +29,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4278133075411872528}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.7, y: -2.103, z: -1.0261952}
   m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_Children: []
@@ -99,7 +99,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.0001
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -166,9 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 20
-  CurrentSide: -1
-  icon: {fileID: 0}
-  cur: 0
+  side: 1
 --- !u!114 &8555537890257629427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,9 +179,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 635038d96738900499b43ac180996b1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -0.0005
+  speed: 0.005
   dmg: 5
   anim: {fileID: 4278133075411872539}
   layer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64

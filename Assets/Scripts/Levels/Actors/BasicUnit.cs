@@ -6,14 +6,12 @@ public enum CurrentSide : int { Human = -1, Duck = 1};
 
 public class BasicUnit : MonoBehaviour
 {
-    
     public int health;
-    public int CurrentSide;
-    public SpriteRenderer icon;
-    public CurrentSide cur;
+    //public SpriteRenderer icon;
+    public CurrentSide side;
     // Start is called before the first frame update
     void Start()
     {
-        icon = GetComponent<SpriteRenderer>();
+        //icon = GetComponent<SpriteRenderer>();
     }
 }

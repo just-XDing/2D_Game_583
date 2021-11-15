@@ -22,32 +22,46 @@ public class BasicUnitAI : MonoBehaviour
     {
         state = States.Idle;
         unit = GetComponent<BasicUnit>();
-        dir = unit.cur == CurrentSide.Human ? Vector2.right : Vector2.left;
+        dir = unit.side == CurrentSide.Human ? Vector2.right : Vector2.left;
     }
 
     // Update is called once per frame
     void Update()
     {
         UpdateState();
-        rayCast = Physics2D.Raycast(unit.transform.position, dir, 1.0f, layer);
-        Debug.Log(rayCast.collider);
+        rayCast = Physics2D.Raycast(getRayCastPosition(), dir, 0.01f, layer);
         //if nothing is being hit
+        Debug.Log(rayCast.collider);
         if (rayCast.collider != null)
         {
             state = States.Attack;
             Fight();
         }
         else {
-
             state = States.Run;
-            if (unit.cur == CurrentSide.Human)
+            switch (unit.side)
             {
-                transform.position += Vector3.left * speed;
-            }
-            else
-            {
-                transform.position += Vector3.right * speed;
-            }
+                case CurrentSide.Human:
+                    unit.transform.position += Vector3.right * speed;
+                    break;
+                case CurrentSide.Duck:
+                    unit.transform.position += Vector3.left * speed;
+                    break;
+            }            
+        }
+    }
+
+    Vector3 getRayCastPosition()
+    {
+        switch (unit.side)
+        {
+            case CurrentSide.Human:
+                return unit.transform.position + new Vector3(0.2f, 0);
+                
+            case CurrentSide.Duck:
+                return unit.transform.position + new Vector3(-0.2f, 0);
+            default:
+                return unit.transform.position;
         }
     }
 
@@ -65,6 +79,7 @@ public class BasicUnitAI : MonoBehaviour
                 anim.SetBool("attack", true);
                 break;
 
+            case States.Idle:
             default: //idle
                 anim.SetBool("attack", false);
                 anim.SetBool("collide", true);
@@ -76,19 +91,21 @@ public class BasicUnitAI : MonoBehaviour
     {
         var enemyBase = rayCast.collider.GetComponent<BaseTower>();
         var enemy = rayCast.collider.GetComponent<BasicUnit>();
-        if (enemyBase != null)
+        if (enemyBase != null && enemyBase.side == getEnemySide())
         {
             if (enemyBase.health <= 0)
             {
                 Destroy(enemyBase.gameObject);
-                this.speed = 0;
+                speed = 0;
+                state = States.Idle;
             }
             else
             {
-                enemyBase.health -= 1;
+                enemyBase.health -= 5;
+                //yield return new WaitForSeconds(5);
             }
         }
-        if (enemy != null)
+        else if (enemy != null && enemy.side == getEnemySide())
         { 
             if (enemy.health <= 0)
             {
@@ -96,8 +113,18 @@ public class BasicUnitAI : MonoBehaviour
             }
             else
             {
-                enemy.health -= 1;
+                enemy.health -= 5;
+                //yield return new WaitForSeconds(5);
             }
         }
+    }
+
+
+    CurrentSide getEnemySide()
+    {
+        if (unit.side == CurrentSide.Human)
+            return CurrentSide.Duck;
+        else
+            return CurrentSide.Human;
     }
 }

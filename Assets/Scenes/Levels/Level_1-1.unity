@@ -180,6 +180,7 @@ GameObject:
   - component: {fileID: 429995708}
   - component: {fileID: 429995710}
   - component: {fileID: 429995711}
+  - component: {fileID: 429995712}
   m_Layer: 6
   m_Name: Tower_E
   m_TagString: Duck
@@ -314,7 +315,21 @@ MonoBehaviour:
   side: 1
   health: 1000
   money: 0
-  availableUnits: []
+  availableUnits:
+  - {fileID: 1234669187400117385, guid: c887d60aa748c6e4ebb9b682cc337292, type: 3}
+--- !u!114 &429995712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429995706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edb9a4af181f14e4997ca16eaaa8c259, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyTower: {fileID: 429995711}
 --- !u!4 &470114510 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7102741800199584375, guid: 350ec47143dee27488bc976be2501b3a, type: 3}
@@ -1711,7 +1726,6 @@ MonoBehaviour:
   money: 0
   availableUnits:
   - {fileID: 3915749283117846814, guid: 350ec47143dee27488bc976be2501b3a, type: 3}
-  - {fileID: 1898600437}
 --- !u!1 &1817910524
 GameObject:
   m_ObjectHideFlags: 0
@@ -1805,17 +1819,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!114 &1898600437 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3915749283117846814, guid: 350ec47143dee27488bc976be2501b3a, type: 3}
-  m_PrefabInstance: {fileID: 7102741800266472121}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42fa8031d17975c4d91a121baedebd4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2054906014
 GameObject:
   m_ObjectHideFlags: 0
@@ -1994,15 +1997,7 @@ PrefabInstance:
       value: DuckBase
       objectReference: {fileID: 0}
     - target: {fileID: 4278133075411872528, guid: c887d60aa748c6e4ebb9b682cc337292, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4278133075411872528, guid: c887d60aa748c6e4ebb9b682cc337292, type: 3}
       propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4278133075411872533, guid: c887d60aa748c6e4ebb9b682cc337292, type: 3}
-      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4278133075411872535, guid: c887d60aa748c6e4ebb9b682cc337292, type: 3}
@@ -2049,14 +2044,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8555537890257629427, guid: c887d60aa748c6e4ebb9b682cc337292, type: 3}
-      propertyPath: speed
-      value: -0.0005
-      objectReference: {fileID: 0}
-    - target: {fileID: 8555537890257629427, guid: c887d60aa748c6e4ebb9b682cc337292, type: 3}
-      propertyPath: layer.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c887d60aa748c6e4ebb9b682cc337292, type: 3}
 --- !u!1001 &7102741800266472121
@@ -2071,20 +2058,8 @@ PrefabInstance:
       value: HumanBase
       objectReference: {fileID: 0}
     - target: {fileID: 1078087464955726371, guid: 350ec47143dee27488bc976be2501b3a, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1078087464955726371, guid: 350ec47143dee27488bc976be2501b3a, type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1081025270446608865, guid: 350ec47143dee27488bc976be2501b3a, type: 3}
-      propertyPath: speed
-      value: 0.0005
-      objectReference: {fileID: 0}
-    - target: {fileID: 1081025270446608865, guid: 350ec47143dee27488bc976be2501b3a, type: 3}
-      propertyPath: layer.m_Bits
-      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 7102741800199584375, guid: 350ec47143dee27488bc976be2501b3a, type: 3}
       propertyPath: m_RootOrder
@@ -2128,10 +2103,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7102741800199584375, guid: 350ec47143dee27488bc976be2501b3a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7807643494935356417, guid: 350ec47143dee27488bc976be2501b3a, type: 3}
-      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -24,10 +24,4 @@ public class BaseTowerControls : MonoBehaviour
     {
         userTower.instantiate(0);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
