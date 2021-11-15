@@ -31,11 +31,10 @@ public class BasicUnitAI : MonoBehaviour
         UpdateState();
         rayCast = Physics2D.Raycast(getRayCastPosition(), dir, 0.01f, layer);
         //if nothing is being hit
-        Debug.Log(rayCast.collider);
         if (rayCast.collider != null)
         {
             state = States.Attack;
-            StartCoroutine(Fight());
+            Fight();
         }
         else {
             state = States.Run;
@@ -87,11 +86,13 @@ public class BasicUnitAI : MonoBehaviour
         }
     }
 
-    IEnumerator Fight()
+
+    bool canFight = true;
+    void Fight()
     {
         var enemyBase = rayCast.collider.GetComponent<BaseTower>();
         var enemy = rayCast.collider.GetComponent<BasicUnit>();
-        if (enemyBase != null && enemyBase.side == getEnemySide())
+        if (canFight && enemyBase != null && enemyBase.side == getEnemySide())
         {
             if (enemyBase.health <= 0)
             {
@@ -103,8 +104,9 @@ public class BasicUnitAI : MonoBehaviour
             {
                 enemyBase.health -= dmg;
             }
+            StartCoroutine(fightCooldown());
         }
-        else if (enemy != null && enemy.side == getEnemySide())
+        else if (canFight && enemy != null && enemy.side == getEnemySide())
         { 
             if (enemy.health <= 0)
             {
@@ -114,10 +116,16 @@ public class BasicUnitAI : MonoBehaviour
             {
                 enemy.health -= dmg;
             }
+            StartCoroutine(fightCooldown());
         }
-        yield return new WaitForSeconds(100);
     }
 
+    IEnumerator fightCooldown()
+    {
+        canFight = false;
+        yield return new WaitForSeconds(2.0f);
+        canFight = true;
+    }
 
     CurrentSide getEnemySide()
     {
