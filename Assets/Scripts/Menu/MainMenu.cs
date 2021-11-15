@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
@@ -12,13 +11,10 @@ public class MainMenu : MonoBehaviour
         B_Credits,
         EXIT;
 
-    TextMeshProUGUI ERROR;
-
     // Start is called before the first frame update
     void Awake()
     {
         initializeControls();
-        initializeTextBoxes();
     }
 
     void initializeControls()
@@ -35,11 +31,6 @@ public class MainMenu : MonoBehaviour
         EXIT.onClick.AddListener(ExitGame);
     }
 
-    void initializeTextBoxes()
-    {
-        ERROR = GameObject.Find("ErrorMessage").GetComponent<TextMeshProUGUI>();
-    }
-
     void switchCharGen()
     {
         SceneManager.LoadScene("CharacterGeneration", LoadSceneMode.Single);
@@ -47,22 +38,7 @@ public class MainMenu : MonoBehaviour
 
     void switchLevels()
     {
-        StartCoroutine(checkSwitchLevels());
-    }
-
-    IEnumerator checkSwitchLevels()
-    {
-        //if you have not created a player
-        if (Player.Instance == null)
-        {
-            ERROR.text = "Please Make Your Character Before Doing Levels";
-            yield return new WaitForSeconds(5);
-            ERROR.text = "";
-        }
-        else
-        {
-            SceneManager.LoadScene("LevelsMenu", LoadSceneMode.Single);
-        }
+        SceneManager.LoadScene("LevelsMenu", LoadSceneMode.Single);
     }
 
     void switchCredits()
