@@ -35,7 +35,7 @@ public class BasicUnitAI : MonoBehaviour
         if (rayCast.collider != null)
         {
             state = States.Attack;
-            Fight();
+            StartCoroutine(Fight());
         }
         else {
             state = States.Run;
@@ -87,7 +87,7 @@ public class BasicUnitAI : MonoBehaviour
         }
     }
 
-    void Fight()
+    IEnumerator Fight()
     {
         var enemyBase = rayCast.collider.GetComponent<BaseTower>();
         var enemy = rayCast.collider.GetComponent<BasicUnit>();
@@ -101,8 +101,7 @@ public class BasicUnitAI : MonoBehaviour
             }
             else
             {
-                enemyBase.health -= 5;
-                //yield return new WaitForSeconds(5);
+                enemyBase.health -= dmg;
             }
         }
         else if (enemy != null && enemy.side == getEnemySide())
@@ -113,10 +112,10 @@ public class BasicUnitAI : MonoBehaviour
             }
             else
             {
-                enemy.health -= 5;
-                //yield return new WaitForSeconds(5);
+                enemy.health -= dmg;
             }
         }
+        yield return new WaitForSeconds(100);
     }
 
 

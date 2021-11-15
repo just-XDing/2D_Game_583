@@ -9,8 +9,7 @@ public class EnemyTowerAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SpawnEnemy();
-        //InvokeRepeating("SpawnEnemy", 0.5f, 0.5f);
+        InvokeRepeating("SpawnEnemy", 1.0f, 5.0f);
     }
 
     // Update is called once per frame
