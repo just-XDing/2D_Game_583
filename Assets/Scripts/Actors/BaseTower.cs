@@ -6,7 +6,9 @@ public class BaseTower : MonoBehaviour
 {
     public CurrentSide side;
     public int health;
-    public int money;
+    public int maxHealth;
+    public int duccCoin;
+    public int maxDuccCoin;
     public BasicUnit[] availableUnits;
     // Start is called before the first frame update
     void Start()
@@ -24,7 +26,6 @@ public class BaseTower : MonoBehaviour
     {
         if (side == CurrentSide.Human)
         {
-            Debug.Log("Instantiated a thingy");
             Instantiate(availableUnits[id], new Vector3(-8.5f, -2.8f, 0), Quaternion.identity);
         }
         else
