@@ -10,6 +10,7 @@ public class BaseTower : MonoBehaviour
     public int duccCoin;
     public int maxDuccCoin;
     public BasicUnit[] availableUnits;
+    public GameObject explosion;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +20,12 @@ public class BaseTower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (health <= 0)
+        {
+            explosion.transform.localScale = new Vector3(7, 7, 1);
+            Instantiate(explosion, this.gameObject.transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
+        }
     }
 
     public void instantiate(int id)

@@ -50,7 +50,7 @@ public class BaseTowerControls : MonoBehaviour
     float moneyRate = 10.0f;
     private void Update()
     {
-        S_HealthBar.value = ((float)userTower.health / userTower.maxHealth) * 100;
+        S_HealthBar.value = userTower.health;
         updateDuccCoin();
         
     }
@@ -74,7 +74,7 @@ public class BaseTowerControls : MonoBehaviour
     IEnumerator moneyRateControl()
     {
         moneyCooldown = false;
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(moneyRate);
         moneyCooldown = true;
     }
 }

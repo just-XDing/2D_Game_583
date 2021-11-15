@@ -180,8 +180,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.005
-  dmg: 5
+  dmg: 20
   anim: {fileID: 4278133075411872539}
   layer:
     serializedVersion: 2
     m_Bits: 64
+  explosion: {fileID: 859465219842991135, guid: e8de88c599a7cd940af585ee512019f2, type: 3}

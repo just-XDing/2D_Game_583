@@ -10,6 +10,8 @@ public class BasicUnitAI : MonoBehaviour
     public int dmg;
     public Animator anim;
     public LayerMask layer;
+    public GameObject explosion;
+
 
     private BasicUnit unit;
     private Vector2 dir;
@@ -28,6 +30,13 @@ public class BasicUnitAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (unit.health <= 0)
+        {
+            state = States.Die;
+            explosion.transform.localScale = new Vector3(3, 3, 1);
+            Instantiate(explosion, transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
+        }
         UpdateState();
         rayCast = Physics2D.Raycast(getRayCastPosition(), dir, 0.01f, layer);
         //if nothing is being hit
