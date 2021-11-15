@@ -11,6 +11,7 @@ public class BaseTowerControls : MonoBehaviour
     public SpriteRenderer towerColor;
     public BaseTower userTower;
     public Button B_Tier1Summon;
+    public Button B_LevelsButton;
 
     public Slider S_HealthBar;
     public TextMeshProUGUI DuccCoinDisplay;
@@ -37,7 +38,10 @@ public class BaseTowerControls : MonoBehaviour
     void setupUserControls()
     {
         B_Tier1Summon = GameObject.Find("B_Tier1").GetComponent<Button>();
+        B_LevelsButton = GameObject.Find("B_Levels").GetComponent<Button>();
+
         B_Tier1Summon.onClick.AddListener(OnClickSummonTier1);
+        B_LevelsButton.onClick.AddListener(OnClickLevelsMenu);
     }
 
     void OnClickSummonTier1()
@@ -45,15 +49,20 @@ public class BaseTowerControls : MonoBehaviour
         userTower.instantiate(0);
     }
 
+    void OnClickLevelsMenu()
+    {
+        SceneManager.LoadScene("LevelsMenu", LoadSceneMode.Single);
+    }
 
-    bool moneyCooldown = true;
-    float moneyRate = 10.0f;
-    private void Update()
+    void Update()
     {
         S_HealthBar.value = userTower.health;
         updateDuccCoin();
-        
+
     }
+
+    bool moneyCooldown = true;
+    float moneyRate = 10.0f;
 
     private void updateDuccCoin()
     {

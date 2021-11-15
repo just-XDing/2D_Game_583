@@ -22,7 +22,7 @@ public class BaseTower : MonoBehaviour
     {
         if (health <= 0)
         {
-            explosion.transform.localScale = new Vector3(7, 7, 1);
+            explosion.transform.localScale = new Vector3(8, 8, 1);
             Instantiate(explosion, this.gameObject.transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }

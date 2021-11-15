@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum States { Idle, Run, Attack, Stun, Die}
+public enum States { Idle, Run, Attack, Die}
 
 public class BasicUnitAI : MonoBehaviour
 {
@@ -16,12 +16,15 @@ public class BasicUnitAI : MonoBehaviour
     private BasicUnit unit;
     private Vector2 dir;
     private RaycastHit2D rayCast;
-    private bool fight;
+    private bool roundEnd;
+    private bool canFight;
     private States state;
 
     // Start is called before the first frame update
     void Start()
     {
+        roundEnd = false;
+        canFight = true;
         state = States.Idle;
         unit = GetComponent<BasicUnit>();
         dir = unit.side == CurrentSide.Human ? Vector2.right : Vector2.left;
@@ -32,20 +35,23 @@ public class BasicUnitAI : MonoBehaviour
     {
         if (unit.health <= 0)
         {
-            state = States.Die;
-            explosion.transform.localScale = new Vector3(3, 3, 1);
-            Instantiate(explosion, transform.position, Quaternion.identity);
-            Destroy(this.gameObject);
+            Die();
         }
         UpdateState();
         rayCast = Physics2D.Raycast(getRayCastPosition(), dir, 0.01f, layer);
+
         //if nothing is being hit
-        if (rayCast.collider != null)
+        if (!roundEnd && rayCast.collider != null && oppositeTag(rayCast.collider))
         {
-            state = States.Attack;
             Fight();
         }
-        else {
+        else if (!roundEnd)
+        {
+            if (rayCast.collider != null && !oppositeTag(rayCast.collider))
+            {
+                Physics2D.IgnoreCollision(rayCast.collider, this.GetComponent<BoxCollider2D>());
+            }
+
             state = States.Run;
             switch (unit.side)
             {
@@ -55,7 +61,36 @@ public class BasicUnitAI : MonoBehaviour
                 case CurrentSide.Duck:
                     unit.transform.position += Vector3.left * speed;
                     break;
-            }            
+            }
+        }
+        else
+        {
+            state = States.Idle;
+        }
+    }
+
+    void Die()
+    {
+        canFight = false;
+        state = States.Die;
+        explosion.transform.localScale = new Vector3(3, 3, 1);
+        Instantiate(explosion, transform.position, Quaternion.identity);
+        Destroy(this.gameObject);
+    }
+
+    bool oppositeTag(Collider2D col)
+    {
+        if (unit.side == CurrentSide.Human && col.CompareTag("Duck"))
+        {
+            return true;
+        }
+        else if (unit.side == CurrentSide.Duck && col.CompareTag("Player"))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 
@@ -96,18 +131,20 @@ public class BasicUnitAI : MonoBehaviour
     }
 
 
-    bool canFight = true;
+    
     void Fight()
     {
+        state = States.Attack;
         var enemyBase = rayCast.collider.GetComponent<BaseTower>();
         var enemy = rayCast.collider.GetComponent<BasicUnit>();
-        if (canFight && enemyBase != null && enemyBase.side == getEnemySide())
+        if (canFight && enemyBase != null )//&& enemyBase.side == getEnemySide())
         {
             if (enemyBase.health <= 0)
             {
                 Destroy(enemyBase.gameObject);
                 speed = 0;
                 state = States.Idle;
+                roundEnd = true;
             }
             else
             {
@@ -115,7 +152,7 @@ public class BasicUnitAI : MonoBehaviour
             }
             StartCoroutine(fightCooldown());
         }
-        else if (canFight && enemy != null && enemy.side == getEnemySide())
+        else if (canFight && enemy != null)//&& enemy.side == getEnemySide())
         { 
             if (enemy.health <= 0)
             {
