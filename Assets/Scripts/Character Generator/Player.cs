@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
     private void loadData()
     {
         playerName = "";
-        color = new Color(0.0f, 0.0f, 0.0f);
+        color = new Color(1.0f, 1.0f, 1.0f);
         skill = Difficulty.Easy;
     }
 
