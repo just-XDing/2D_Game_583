@@ -12,21 +12,27 @@ public class BaseTowerControls : MonoBehaviour
     public BaseTower userTower;
     public Button B_Tier1Summon;
     public Button B_LevelsButton;
+    public Player player;
 
     public Slider S_HealthBar;
     public TextMeshProUGUI DuccCoinDisplay;
     // Start is called before the first frame update
     void Start()
     {
-        Init_UserColors(new Color(0, 255, 255));
+        InitializePlayer();
         SetupDisplays();
         setupUserControls();
     }
 
-    void Init_UserColors(Color col)
+    void InitializePlayer()
     {
-        HBarColor.color = col;
-        towerColor.color = col;
+        if (Player.Instance == null)
+        {
+            player = gameObject.AddComponent<Player>() as Player;
+        }
+
+        towerColor.color = player.getColor();
+        HBarColor.color = player.getColor();
     }
 
     void SetupDisplays()

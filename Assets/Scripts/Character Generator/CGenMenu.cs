@@ -7,7 +7,7 @@ using TMPro;
 
 public class CGenMenu : MonoBehaviour
 {
-    public Player play;
+    public Player player;
     public Button B_Back;
 
     public Slider S_RedSlider,
@@ -27,7 +27,6 @@ public class CGenMenu : MonoBehaviour
     {
         initializeControls();
         initializePlayer();
-
     }
 
     void initializeControls()
@@ -80,7 +79,7 @@ public class CGenMenu : MonoBehaviour
     {
         if (Player.Instance == null)
         {
-            play = gameObject.AddComponent<Player>() as Player;
+            player = gameObject.AddComponent<Player>() as Player;
         }
 
         loadPreviousData();
@@ -88,10 +87,10 @@ public class CGenMenu : MonoBehaviour
 
     public void loadPreviousData()
     {
-        play = Player.Instance;
-        IF_NameBox.text = play.getName();
+        player = Player.Instance;
+        IF_NameBox.text = player.getName();
 
-        Color P_Color = play.getColor();
+        Color P_Color = player.getColor();
         S_RedSlider.value = P_Color.r;
         S_GreenSlider.value = P_Color.g;
         S_BlueSlider.value = P_Color.b;
@@ -100,7 +99,7 @@ public class CGenMenu : MonoBehaviour
         TMP_GreenValue.text = S_GreenSlider.value.ToString("F2");
         TMP_BlueValue.text = S_BlueSlider.value.ToString("F2");
 
-        DD_Difficulty.value = (int)(play.skill);
+        DD_Difficulty.value = (int)(player.skill);
     }
 
     // Update is called once per frame
@@ -115,17 +114,17 @@ public class CGenMenu : MonoBehaviour
     void getValuesFromGame()
     {
         if (IF_NameBox.text == "")
-            play.setName("Player");
+            player.setName("Player");
         else
-            play.setName(IF_NameBox.text);
+            player.setName(IF_NameBox.text);
 
         changeColor(S_RedSlider.value, S_GreenSlider.value, S_BlueSlider.value);
-        play.skill = (Difficulty)(DD_Difficulty.value);
+        player.skill = (Difficulty)(DD_Difficulty.value);
     }
 
     void changeColor(float r, float g, float b)
     {
-        play.setColor(r, g, b);
-        preview.color = play.getColor();
+        player.setColor(r, g, b);
+        preview.color = player.getColor();
     }
 }

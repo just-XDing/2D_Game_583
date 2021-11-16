@@ -16,7 +16,7 @@ public class BasicUnitAI : MonoBehaviour
     private BasicUnit unit;
     private Vector2 dir;
     private RaycastHit2D rayCast;
-    private bool roundEnd;
+    private static bool roundEnd;
     private bool canFight;
     private States state;
 
@@ -66,6 +66,7 @@ public class BasicUnitAI : MonoBehaviour
         else
         {
             state = States.Idle;
+            speed = 0;
         }
     }
 
@@ -142,13 +143,11 @@ public class BasicUnitAI : MonoBehaviour
             if (enemyBase.health <= 0)
             {
                 Destroy(enemyBase.gameObject);
-                speed = 0;
-                state = States.Idle;
                 roundEnd = true;
             }
             else
             {
-                enemyBase.health -= dmg;
+                enemyBase.health -= damageMultiplier();
             }
             StartCoroutine(fightCooldown());
         }
@@ -160,7 +159,7 @@ public class BasicUnitAI : MonoBehaviour
             }
             else
             {
-                enemy.health -= dmg;
+                enemy.health -= damageMultiplier();
             }
             StartCoroutine(fightCooldown());
         }
@@ -179,5 +178,10 @@ public class BasicUnitAI : MonoBehaviour
             return CurrentSide.Duck;
         else
             return CurrentSide.Human;
+    }
+
+    int damageMultiplier()
+    {
+        return (int)(Player.Instance.getDifficulty()) * dmg;
     }
 }

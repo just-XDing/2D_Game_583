@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 462301652}
     m_Modifications:
+    - target: {fileID: 1234669187400117385, guid: c887d60aa748c6e4ebb9b682cc337292, type: 3}
+      propertyPath: health
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 4278133075411872528, guid: c887d60aa748c6e4ebb9b682cc337292, type: 3}
       propertyPath: m_Name
       value: BasicDuck
@@ -580,6 +584,7 @@ MonoBehaviour:
   userTower: {fileID: 1730277504}
   B_Tier1Summon: {fileID: 998483877}
   B_LevelsButton: {fileID: 0}
+  player: {fileID: 0}
   S_HealthBar: {fileID: 2120331827}
   DuccCoinDisplay: {fileID: 347306233}
 --- !u!1 &543361853
@@ -2545,9 +2550,17 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1081025270446608865, guid: 350ec47143dee27488bc976be2501b3a, type: 3}
+      propertyPath: dmg
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 2831355069002159479, guid: 350ec47143dee27488bc976be2501b3a, type: 3}
       propertyPath: m_CollisionDetection
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3915749283117846814, guid: 350ec47143dee27488bc976be2501b3a, type: 3}
+      propertyPath: health
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 7102741800199584375, guid: 350ec47143dee27488bc976be2501b3a, type: 3}
       propertyPath: m_RootOrder
@@ -2930,6 +2943,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1093846674}
     m_Modifications:
+    - target: {fileID: 1234669187400117385, guid: c887d60aa748c6e4ebb9b682cc337292, type: 3}
+      propertyPath: health
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 4278133075411872528, guid: c887d60aa748c6e4ebb9b682cc337292, type: 3}
       propertyPath: m_Name
       value: DuckBase
@@ -3005,7 +3022,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 859465219842991135, guid: e8de88c599a7cd940af585ee512019f2, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2821828373654381542, guid: e8de88c599a7cd940af585ee512019f2, type: 3}
       propertyPath: m_RootOrder
@@ -3077,9 +3094,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1081025270446608865, guid: 350ec47143dee27488bc976be2501b3a, type: 3}
+      propertyPath: dmg
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1081025270446608865, guid: 350ec47143dee27488bc976be2501b3a, type: 3}
       propertyPath: explosion
       value: 
       objectReference: {fileID: 1191323153}
+    - target: {fileID: 3915749283117846814, guid: 350ec47143dee27488bc976be2501b3a, type: 3}
+      propertyPath: health
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 7102741800199584375, guid: 350ec47143dee27488bc976be2501b3a, type: 3}
       propertyPath: m_RootOrder
       value: 1
