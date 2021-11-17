@@ -37,11 +37,11 @@ public class BaseTower : MonoBehaviour
         {
             if (side == CurrentSide.Human)
             {
-                Instantiate(availableUnits[id], new Vector3(-8.5f, -2.8f, 0), Quaternion.identity);
+                Instantiate(availableUnits[id], new Vector3(-9.5f, -2.7f, 0), Quaternion.identity);
             }
             else
             {
-                Instantiate(availableUnits[id], new Vector3(8.5f, -2.8f, 0), Quaternion.identity);
+                Instantiate(availableUnits[id], new Vector3(9.5f, -2.7f, 0), Quaternion.identity);
             }
         }
     }

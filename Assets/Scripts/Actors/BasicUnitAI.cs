@@ -71,6 +71,7 @@ public class BasicUnitAI : MonoBehaviour
     {
         canFight = false;
         state = States.Die;
+        StopCoroutine(fightCooldown());
         explosion.transform.localScale = new Vector3(3, 3, 1);
         Instantiate(explosion, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
@@ -139,7 +140,6 @@ public class BasicUnitAI : MonoBehaviour
         {
             if (enemyBase.health <= 0)
             {
-                Destroy(enemyBase.gameObject);
                 StopAllCoroutines();
             }
             else
@@ -150,11 +150,7 @@ public class BasicUnitAI : MonoBehaviour
         }
         else if (canFight && enemy != null)//&& enemy.side == getEnemySide())
         { 
-            if (enemy.health <= 0)
-            {
-                Destroy(enemy.gameObject);
-            }
-            else
+            if (enemy.health > 0)
             {
                 enemy.health -= damageMultiplier();
             }
@@ -165,7 +161,7 @@ public class BasicUnitAI : MonoBehaviour
     IEnumerator fightCooldown()
     {
         canFight = false;
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSecondsRealtime(2.0f);
         canFight = true;
     }
 

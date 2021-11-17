@@ -16,6 +16,7 @@ public class BaseTowerControls : MonoBehaviour
 
     public Slider S_HealthBar;
     public TextMeshProUGUI DuccCoinDisplay;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +34,8 @@ public class BaseTowerControls : MonoBehaviour
 
         towerColor.color = player.getColor();
         HBarColor.color = player.getColor();
+
+        InvokeRepeating("updateDuccCoin", 1.0f, (0.2f * (float)(player.getDifficulty())));
     }
 
     void SetupDisplays()
@@ -52,6 +55,7 @@ public class BaseTowerControls : MonoBehaviour
 
     void OnClickSummonTier1()
     {
+        userTower.duccCoin -= 10;
         userTower.instantiate(0);
     }
 
@@ -63,33 +67,27 @@ public class BaseTowerControls : MonoBehaviour
     void Update()
     {
         S_HealthBar.value = userTower.health;
-        updateDuccCoin();
-
+        ButtonToggle();
     }
 
-    bool moneyCooldown = true;
-    float moneyRate = 10.0f;
-
-    private void updateDuccCoin()
+    void ButtonToggle()
     {
-        if (moneyCooldown)
+        if (!(BaseTower.roundEnded) && userTower.duccCoin >= 10)
         {
-            StartCoroutine(moneyRateControl());
+            B_Tier1Summon.interactable = true;
         }
         else
         {
-            if (userTower.duccCoin < userTower.maxDuccCoin)
-            {
-                userTower.duccCoin++;
-                DuccCoinDisplay.text = (userTower.duccCoin).ToString();
-            }
+            B_Tier1Summon.interactable = false;
         }
     }
 
-    IEnumerator moneyRateControl()
+    private void updateDuccCoin()
     {
-        moneyCooldown = false;
-        yield return new WaitForSeconds(moneyRate);
-        moneyCooldown = true;
+        if (!(BaseTower.roundEnded) && (userTower.duccCoin < userTower.maxDuccCoin))
+        {
+            userTower.duccCoin++;
+            DuccCoinDisplay.text = (userTower.duccCoin).ToString();
+        }
     }
 }
