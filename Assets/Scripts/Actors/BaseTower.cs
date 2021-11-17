@@ -11,17 +11,20 @@ public class BaseTower : MonoBehaviour
     public int maxDuccCoin;
     public BasicUnit[] availableUnits;
     public GameObject explosion;
+    public static bool roundEnded;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        roundEnded = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (health <= 0)
+        if (!roundEnded && health <= 0)
         {
+            roundEnded = true;
             explosion.transform.localScale = new Vector3(8, 8, 1);
             Instantiate(explosion, this.gameObject.transform.position, Quaternion.identity);
             Destroy(this.gameObject);
@@ -30,13 +33,16 @@ public class BaseTower : MonoBehaviour
 
     public void instantiate(int id)
     {
-        if (side == CurrentSide.Human)
+        if (!roundEnded)
         {
-            Instantiate(availableUnits[id], new Vector3(-8.5f, -2.8f, 0), Quaternion.identity);
-        }
-        else
-        {
-            Instantiate(availableUnits[id], new Vector3(8.5f, -2.8f, 0), Quaternion.identity);
+            if (side == CurrentSide.Human)
+            {
+                Instantiate(availableUnits[id], new Vector3(-8.5f, -2.8f, 0), Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(availableUnits[id], new Vector3(8.5f, -2.8f, 0), Quaternion.identity);
+            }
         }
     }
 }

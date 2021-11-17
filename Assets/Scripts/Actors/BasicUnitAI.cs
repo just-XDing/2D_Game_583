@@ -12,18 +12,15 @@ public class BasicUnitAI : MonoBehaviour
     public LayerMask layer;
     public GameObject explosion;
 
-
     private BasicUnit unit;
     private Vector2 dir;
     private RaycastHit2D rayCast;
-    private static bool roundEnd;
     private bool canFight;
     private States state;
 
     // Start is called before the first frame update
     void Start()
     {
-        roundEnd = false;
         canFight = true;
         state = States.Idle;
         unit = GetComponent<BasicUnit>();
@@ -41,11 +38,11 @@ public class BasicUnitAI : MonoBehaviour
         rayCast = Physics2D.Raycast(getRayCastPosition(), dir, 0.01f, layer);
 
         //if nothing is being hit
-        if (!roundEnd && rayCast.collider != null && oppositeTag(rayCast.collider))
+        if (!(BaseTower.roundEnded) && rayCast.collider != null && oppositeTag(rayCast.collider))
         {
             Fight();
         }
-        else if (!roundEnd)
+        else if (!(BaseTower.roundEnded))
         {
             if (rayCast.collider != null && !oppositeTag(rayCast.collider))
             {
@@ -143,7 +140,7 @@ public class BasicUnitAI : MonoBehaviour
             if (enemyBase.health <= 0)
             {
                 Destroy(enemyBase.gameObject);
-                roundEnd = true;
+                StopAllCoroutines();
             }
             else
             {
