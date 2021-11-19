@@ -44,11 +44,6 @@ public class BasicUnitAI : MonoBehaviour
         }
         else if (!(BaseTower.roundEnded))
         {
-            if (rayCast.collider != null && !oppositeTag(rayCast.collider))
-            {
-                Physics2D.IgnoreCollision(rayCast.collider, this.GetComponent<BoxCollider2D>());
-            }
-
             state = States.Run;
             switch (unit.side)
             {
@@ -64,6 +59,14 @@ public class BasicUnitAI : MonoBehaviour
         {
             state = States.Idle;
             speed = 0;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!oppositeTag(collision.collider) && !collision.collider.CompareTag("Untagged"))
+        {
+            Physics2D.IgnoreCollision(collision.collider, this.GetComponent<BoxCollider2D>());
         }
     }
 
@@ -129,8 +132,6 @@ public class BasicUnitAI : MonoBehaviour
         }
     }
 
-
-    
     void Fight()
     {
         state = States.Attack;
