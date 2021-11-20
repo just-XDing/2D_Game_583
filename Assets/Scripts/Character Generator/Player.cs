@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public enum Difficulty : short { Easy = 1, Medium = 2, Hard = 3 };
-
 public class Player : MonoBehaviour
 {
     public static Player Instance { get; private set; }
     private string playerName;
     private Color color;
-    public Difficulty skill;
+    private Difficulty skill;
     public void Awake()
     {
         //if there is no instance of a DNDPlayer, make a new one, and load its data.
@@ -28,7 +26,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void loadData()
+    public void loadData()
     {
         playerName = "";
         color = new Color(1.0f, 1.0f, 1.0f);

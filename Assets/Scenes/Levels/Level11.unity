@@ -524,7 +524,6 @@ MonoBehaviour:
   userTower: {fileID: 1730277504}
   B_Tier1Summon: {fileID: 998483877}
   B_LevelsButton: {fileID: 1917744018}
-  player: {fileID: 0}
   S_HealthBar: {fileID: 2120331827}
   DuccCoinDisplay: {fileID: 347306233}
 --- !u!1 &543361853
@@ -700,7 +699,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 283}
+  m_AnchoredPosition: {x: 0, y: 160.08}
   m_SizeDelta: {x: 890.797, y: 420.166}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &705558597

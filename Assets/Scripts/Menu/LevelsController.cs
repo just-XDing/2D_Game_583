@@ -34,7 +34,7 @@ public class LevelsController : MonoBehaviour
 
     void OpenLevel11()
     {
-        SceneManager.LoadScene("Level_1-1", LoadSceneMode.Single);
+        SceneManager.LoadScene("Level11", LoadSceneMode.Single);
     }
 
     // Update is called once per frame

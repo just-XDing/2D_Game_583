@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+public enum Difficulty : int { Easy = 1, Medium = 2, Hard = 3 };
+
 public class MainMenu : MonoBehaviour
 {
     Button B_CharGen,
@@ -61,7 +63,6 @@ public class MainMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
         if (Player.Instance == null)
         {
             B_Levels.interactable = false;
@@ -69,6 +70,6 @@ public class MainMenu : MonoBehaviour
         else
         {
             B_Levels.interactable = true;
-        }*/
+        }
     }
 }

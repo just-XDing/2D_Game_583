@@ -184,6 +184,6 @@ public class BasicUnitAI : MonoBehaviour
 
     int damageMultiplier()
     {
-        return (int)(Player.Instance.getDifficulty()) * dmg;
+        return dmg * (int)(Player.Instance.getDifficulty());
     }
 }

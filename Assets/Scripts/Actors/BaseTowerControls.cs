@@ -13,7 +13,6 @@ public class BaseTowerControls : MonoBehaviour
     public BaseTower userTower;
     public Button B_Tier1Summon;
     public Button B_LevelsButton;
-    public Player player;
 
     public Slider S_HealthBar;
     public TextMeshProUGUI DuccCoinDisplay;
@@ -26,19 +25,20 @@ public class BaseTowerControls : MonoBehaviour
         InitializePlayer();
         SetupDisplays();
         setupUserControls();
+        InvokeRepeating("updateDuccCoin", 1.0f, (0.2f * (int)((Player.Instance).getDifficulty())));
     }
 
     void InitializePlayer()
     {
-        if (Player.Instance == null)
+        if (Player.Instance != null)
         {
-            player = gameObject.AddComponent<Player>() as Player;
+            towerColor.color = (Player.Instance).getColor();
+            HBarColor.color = (Player.Instance).getColor();
         }
-
-        towerColor.color = player.getColor();
-        HBarColor.color = player.getColor();
-
-        InvokeRepeating("updateDuccCoin", 1.0f, (0.2f * (float)(player.getDifficulty())));
+        else
+        {
+            gameObject.AddComponent<Player>();
+        }
     }
 
     void SetupDisplays()
@@ -52,6 +52,7 @@ public class BaseTowerControls : MonoBehaviour
     {
         B_Tier1Summon = GameObject.Find("B_Tier1").GetComponent<Button>();
         B_LevelsButton = GameObject.Find("B_Levels").GetComponent<Button>();
+        
 
         B_Tier1Summon.onClick.AddListener(OnClickSummonTier1);
         B_LevelsButton.onClick.AddListener(OnClickLevelsMenu);
@@ -65,12 +66,11 @@ public class BaseTowerControls : MonoBehaviour
 
     void OnClickLevelsMenu()
     {
-        StopAllCoroutines();
         SceneManager.LoadScene("LevelsMenu", LoadSceneMode.Single);
     }
 
     void Update()
-    {
+    { 
         if (BaseTower.roundEnded)
         {
             if (userTower.health <= 0)
