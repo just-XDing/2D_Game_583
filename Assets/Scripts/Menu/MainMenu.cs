@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+public enum Difficulty : int { Easy = 1, Medium = 2, Hard = 3 };
+
 public class MainMenu : MonoBehaviour
 {
     Button B_CharGen,
@@ -12,7 +14,7 @@ public class MainMenu : MonoBehaviour
         EXIT;
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         initializeControls();
     }
@@ -21,7 +23,7 @@ public class MainMenu : MonoBehaviour
     {
         B_CharGen = GameObject.Find("CharacterGenerator").GetComponent<Button>();
         B_Levels = GameObject.Find("LevelButton").GetComponent<Button>();
-        B_Credits = GameObject.Find("CharacterGenerator").GetComponent<Button>();
+        B_Credits = GameObject.Find("CreditsButton").GetComponent<Button>();
         EXIT = GameObject.Find("EXITButton").GetComponent<Button>();
 
 
@@ -61,6 +63,13 @@ public class MainMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Player.Instance == null)
+        {
+            B_Levels.interactable = false;
+        }
+        else
+        {
+            B_Levels.interactable = true;
+        }
     }
 }

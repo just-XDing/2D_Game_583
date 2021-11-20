@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class CreditsController : MonoBehaviour
 {
-    Button B_Back;
+    public Button B_Back;
     // Start is called before the first frame update
     void Awake()
     {
