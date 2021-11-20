@@ -27,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8008021003759381070}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9, y: -1.302509, z: -1.0261952}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
@@ -150,5 +150,6 @@ MonoBehaviour:
   duccCoin: 0
   maxDuccCoin: 200
   availableUnits:
-  - {fileID: 3915749283117846814, guid: 350ec47143dee27488bc976be2501b3a, type: 3}
+  - {fileID: 7604728943609264523, guid: 0a6bfabfae75480499c3e7e3cf1e5c08, type: 3}
   explosion: {fileID: 859465219842991135, guid: e8de88c599a7cd940af585ee512019f2, type: 3}
+  TMP_Victory: {fileID: 0}

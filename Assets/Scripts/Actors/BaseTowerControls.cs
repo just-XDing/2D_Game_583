@@ -8,6 +8,7 @@ using TMPro;
 public class BaseTowerControls : MonoBehaviour
 {
     public Image HBarColor;
+    public TextMeshProUGUI TMP_Victory;
     public SpriteRenderer towerColor;
     public BaseTower userTower;
     public Button B_Tier1Summon;
@@ -16,10 +17,12 @@ public class BaseTowerControls : MonoBehaviour
 
     public Slider S_HealthBar;
     public TextMeshProUGUI DuccCoinDisplay;
+    private bool canPress;
 
     // Start is called before the first frame update
     void Start()
     {
+        canPress = true;
         InitializePlayer();
         SetupDisplays();
         setupUserControls();
@@ -42,6 +45,7 @@ public class BaseTowerControls : MonoBehaviour
     {
         S_HealthBar = GameObject.Find("HealthBar").GetComponent<Slider>();
         DuccCoinDisplay = GameObject.Find("DuccCoinAmount").GetComponent<TextMeshProUGUI>();
+        TMP_Victory = GameObject.Find("Win-LoseText").GetComponent<TextMeshProUGUI>();
     }
 
     void setupUserControls()
@@ -56,22 +60,35 @@ public class BaseTowerControls : MonoBehaviour
     void OnClickSummonTier1()
     {
         userTower.instantiate(0);
+        StartCoroutine(buttonCooldown());
     }
 
     void OnClickLevelsMenu()
     {
+        StopAllCoroutines();
         SceneManager.LoadScene("LevelsMenu", LoadSceneMode.Single);
     }
 
     void Update()
     {
+        if (BaseTower.roundEnded)
+        {
+            if (userTower.health <= 0)
+            {
+                TMP_Victory.text = "YOU LOSE\nGo back to the levels by clicking on the back button above";
+            }
+            else
+            {
+                TMP_Victory.text = "YOU WIN\nGo back to the levels by clicking on the back button above";
+            }
+        }
         S_HealthBar.value = userTower.health;
         ButtonToggle(0);
     }
 
     void ButtonToggle(int id)
     {
-        if (!(BaseTower.roundEnded) && userTower.duccCoin >= userTower.availableUnits[id].price)
+        if (canPress && !(BaseTower.roundEnded) && userTower.duccCoin >= userTower.availableUnits[id].price)
         {
             B_Tier1Summon.interactable = true;
         }
@@ -79,6 +96,13 @@ public class BaseTowerControls : MonoBehaviour
         {
             B_Tier1Summon.interactable = false;
         }
+    }
+
+    IEnumerator buttonCooldown()
+    {
+        canPress = false;
+        yield return new WaitForSeconds(1);
+        canPress = true;
     }
 
     private void updateDuccCoin()

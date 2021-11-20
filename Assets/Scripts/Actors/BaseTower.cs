@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class BaseTower : MonoBehaviour
 {
@@ -24,11 +25,12 @@ public class BaseTower : MonoBehaviour
     {
         if (!roundEnded && health <= 0)
         {
+            StopAllCoroutines();
             roundEnded = true;
             explosion.transform.localScale = new Vector3(8, 8, 1);
             Instantiate(explosion, this.gameObject.transform.position, Quaternion.identity);
             Destroy(this.gameObject);
-        }
+            }
     }
 
     public void instantiate(int id)

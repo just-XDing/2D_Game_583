@@ -6,6 +6,7 @@ public enum States { Idle, Run, Attack, Die}
 
 public class BasicUnitAI : MonoBehaviour
 {
+    public AudioSource Sound_Hit;
     public float speed;
     public int dmg;
     public Animator anim;
@@ -21,6 +22,7 @@ public class BasicUnitAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Sound_Hit = GetComponent<AudioSource>();
         canFight = true;
         state = States.Idle;
         unit = GetComponent<BasicUnit>();
@@ -122,21 +124,15 @@ public class BasicUnitAI : MonoBehaviour
         {
             case States.Run:
                 anim.SetFloat("state", 1f);
-                anim.SetBool("attack", false);
-                anim.SetBool("collide", false);
                 break;
 
             case States.Attack:
                 anim.SetFloat("state", 2f);
-                anim.SetBool("collide", true);
-                anim.SetBool("attack", true);
                 break;
 
             case States.Idle:
             default: //idle
                 anim.SetFloat("state", 0f);
-                anim.SetBool("attack", false);
-                anim.SetBool("collide", true);
                 break;
         }
     }
@@ -162,6 +158,7 @@ public class BasicUnitAI : MonoBehaviour
         { 
             if (enemy.health > 0)
             {
+                
                 enemy.health -= damageMultiplier();
             }
             StartCoroutine(fightCooldown());
@@ -171,7 +168,9 @@ public class BasicUnitAI : MonoBehaviour
     IEnumerator fightCooldown()
     {
         canFight = false;
-        yield return new WaitForSecondsRealtime(2.0f);
+        yield return new WaitForSeconds(0.05f);
+        Sound_Hit.PlayOneShot(Sound_Hit.clip, 0.5f);
+        yield return new WaitForSecondsRealtime(0.95f);
         canFight = true;
     }
 
