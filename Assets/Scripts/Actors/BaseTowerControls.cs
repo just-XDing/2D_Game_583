@@ -55,7 +55,6 @@ public class BaseTowerControls : MonoBehaviour
 
     void OnClickSummonTier1()
     {
-        userTower.duccCoin -= 10;
         userTower.instantiate(0);
     }
 
@@ -67,12 +66,12 @@ public class BaseTowerControls : MonoBehaviour
     void Update()
     {
         S_HealthBar.value = userTower.health;
-        ButtonToggle();
+        ButtonToggle(0);
     }
 
-    void ButtonToggle()
+    void ButtonToggle(int id)
     {
-        if (!(BaseTower.roundEnded) && userTower.duccCoin >= 10)
+        if (!(BaseTower.roundEnded) && userTower.duccCoin >= userTower.availableUnits[id].price)
         {
             B_Tier1Summon.interactable = true;
         }

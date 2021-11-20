@@ -179,6 +179,10 @@ PrefabInstance:
       value: EnemyTower
       objectReference: {fileID: 0}
     - target: {fileID: 1490739094195835814, guid: 396c8ac64ebccbf43805d5ef82513130, type: 3}
+      propertyPath: maxHealth
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1490739094195835814, guid: 396c8ac64ebccbf43805d5ef82513130, type: 3}
       propertyPath: availableUnits.Array.data[0]
       value: 
       objectReference: {fileID: 2075967844111572115, guid: 34b6f0fac01357b45aada77cd9395535, type: 3}

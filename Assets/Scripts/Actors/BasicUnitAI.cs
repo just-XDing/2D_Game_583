@@ -44,6 +44,11 @@ public class BasicUnitAI : MonoBehaviour
         }
         else if (!(BaseTower.roundEnded))
         {
+            if (rayCast.collider != null && !oppositeTag(rayCast.collider))
+            {
+                Physics2D.IgnoreCollision(rayCast.collider, this.GetComponent<BoxCollider2D>());
+            }
+
             state = States.Run;
             switch (unit.side)
             {
@@ -62,6 +67,7 @@ public class BasicUnitAI : MonoBehaviour
         }
     }
 
+    //ironically, this ignores collisions with things of the same tag.
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!oppositeTag(collision.collider) && !collision.collider.CompareTag("Untagged"))
@@ -115,17 +121,20 @@ public class BasicUnitAI : MonoBehaviour
         switch(state)
         {
             case States.Run:
+                anim.SetFloat("state", 1f);
                 anim.SetBool("attack", false);
                 anim.SetBool("collide", false);
                 break;
 
             case States.Attack:
+                anim.SetFloat("state", 2f);
                 anim.SetBool("collide", true);
                 anim.SetBool("attack", true);
                 break;
 
             case States.Idle:
             default: //idle
+                anim.SetFloat("state", 0f);
                 anim.SetBool("attack", false);
                 anim.SetBool("collide", true);
                 break;

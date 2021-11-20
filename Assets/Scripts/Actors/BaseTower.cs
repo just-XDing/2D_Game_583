@@ -38,6 +38,7 @@ public class BaseTower : MonoBehaviour
             if (side == CurrentSide.Human)
             {
                 Instantiate(availableUnits[id], new Vector3(-9.5f, -2.7f, 0), Quaternion.identity);
+                duccCoin -= availableUnits[id].price;
             }
             else
             {
