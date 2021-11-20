@@ -12,7 +12,7 @@ public class MainMenu : MonoBehaviour
         EXIT;
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         initializeControls();
     }
@@ -21,7 +21,7 @@ public class MainMenu : MonoBehaviour
     {
         B_CharGen = GameObject.Find("CharacterGenerator").GetComponent<Button>();
         B_Levels = GameObject.Find("LevelButton").GetComponent<Button>();
-        B_Credits = GameObject.Find("CharacterGenerator").GetComponent<Button>();
+        B_Credits = GameObject.Find("CreditsButton").GetComponent<Button>();
         EXIT = GameObject.Find("EXITButton").GetComponent<Button>();
 
 
@@ -61,6 +61,14 @@ public class MainMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        /*
+        if (Player.Instance == null)
+        {
+            B_Levels.interactable = false;
+        }
+        else
+        {
+            B_Levels.interactable = true;
+        }*/
     }
 }

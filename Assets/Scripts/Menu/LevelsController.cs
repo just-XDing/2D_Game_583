@@ -13,7 +13,7 @@ public class LevelsController : MonoBehaviour
         B_Level14,
         B_Level15;
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         initializeControls();
     }
@@ -21,7 +21,7 @@ public class LevelsController : MonoBehaviour
     void initializeControls()
     {
         B_Back = GameObject.Find("BackButton").GetComponent<Button>();
-        B_Level11 = GameObject.Find("BackButton").GetComponent<Button>();
+        B_Level11 = GameObject.Find("Level1").GetComponent<Button>();
         
         B_Back.onClick.AddListener(PressedBack);
         B_Level11.onClick.AddListener(OpenLevel11);

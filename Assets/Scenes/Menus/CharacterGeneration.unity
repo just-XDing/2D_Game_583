@@ -4337,7 +4337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  B_Back: {fileID: 970525392}
+  B_Back2: {fileID: 0}
   S_RedSlider: {fileID: 1088995342}
   S_GreenSlider: {fileID: 699024729}
   S_BlueSlider: {fileID: 650246033}

@@ -8,7 +8,7 @@ using TMPro;
 public class CGenMenu : MonoBehaviour
 {
     public Player player;
-    public Button B_Back;
+    public Button B_Back2;
 
     public Slider S_RedSlider,
         S_GreenSlider,
@@ -31,7 +31,7 @@ public class CGenMenu : MonoBehaviour
 
     void initializeControls()
     {
-        B_Back = GameObject.Find("BackButton").GetComponent<Button>();
+        B_Back2 = GameObject.Find("BackButton").GetComponent<Button>();
 
         S_RedSlider = GameObject.Find("RedSlider").GetComponent<Slider>();
         S_GreenSlider = GameObject.Find("GreenSlider").GetComponent<Slider>();
@@ -47,7 +47,7 @@ public class CGenMenu : MonoBehaviour
         preview = GameObject.Find("PreviewTower").GetComponent<Image>();
         
         
-        B_Back.onClick.AddListener(OnClickBackButton);
+        B_Back2.onClick.AddListener(OnClickBackButton);
 
         S_RedSlider.onValueChanged.AddListener(delegate { OnChangedRed(); });
         S_GreenSlider.onValueChanged.AddListener(delegate { OnChangedGreen(); });
@@ -77,17 +77,15 @@ public class CGenMenu : MonoBehaviour
 
     void initializePlayer()
     {
-        if (Player.Instance == null)
-        {
-            player = gameObject.AddComponent<Player>() as Player;
-        }
-
         loadPreviousData();
     }
 
     public void loadPreviousData()
     {
-        player = Player.Instance;
+        if (Player.Instance == null)
+        {
+            player = gameObject.AddComponent<Player>() as Player;
+        }
         IF_NameBox.text = player.getName();
 
         Color P_Color = player.getColor();
