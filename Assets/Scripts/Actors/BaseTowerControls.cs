@@ -11,7 +11,7 @@ public class BaseTowerControls : MonoBehaviour
     public TextMeshProUGUI TMP_Victory;
     public SpriteRenderer towerColor;
     public BaseTower userTower;
-    public Button B_Tier1Summon;
+    public Button[] B_SummonList;
     public Button B_LevelsButton;
 
     public Slider S_HealthBar;
@@ -50,17 +50,40 @@ public class BaseTowerControls : MonoBehaviour
 
     void setupUserControls()
     {
-        B_Tier1Summon = GameObject.Find("B_Tier1").GetComponent<Button>();
+        for (int i = 0; i < B_SummonList.Length; i++)
+        {
+            B_SummonList[i].interactable = false;
+        }
         B_LevelsButton = GameObject.Find("B_Levels").GetComponent<Button>();
-        
 
-        B_Tier1Summon.onClick.AddListener(OnClickSummonTier1);
+        B_SummonList[0].onClick.AddListener(OnClickSummonTier1);
+        B_SummonList[1].onClick.AddListener(OnClickSummonTier2);
+        B_SummonList[2].onClick.AddListener(OnClickSummonTier3);
+        B_SummonList[3].onClick.AddListener(OnClickSummonTier4);
         B_LevelsButton.onClick.AddListener(OnClickLevelsMenu);
     }
 
     void OnClickSummonTier1()
     {
         userTower.instantiate(0);
+        StartCoroutine(buttonCooldown());
+    }
+
+    void OnClickSummonTier2()
+    {
+        userTower.instantiate(1);
+        StartCoroutine(buttonCooldown());
+    }
+
+    void OnClickSummonTier3()
+    {
+        userTower.instantiate(2);
+        StartCoroutine(buttonCooldown());
+    }
+
+    void OnClickSummonTier4()
+    {
+        userTower.instantiate(3);
         StartCoroutine(buttonCooldown());
     }
 
@@ -83,18 +106,22 @@ public class BaseTowerControls : MonoBehaviour
             }
         }
         S_HealthBar.value = userTower.health;
-        ButtonToggle(0);
+    
+        for (int j = (SceneManager.GetActiveScene().buildIndex - 3); j > 0; j--)
+        {
+            ButtonToggle(j - 1);
+        }
     }
 
     void ButtonToggle(int id)
     {
         if (canPress && !(BaseTower.roundEnded) && userTower.duccCoin >= userTower.availableUnits[id].price)
         {
-            B_Tier1Summon.interactable = true;
+            B_SummonList[id].interactable = true;
         }
         else
         {
-            B_Tier1Summon.interactable = false;
+            B_SummonList[id].interactable = false;
         }
     }
 
