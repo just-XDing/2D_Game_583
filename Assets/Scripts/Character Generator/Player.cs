@@ -6,6 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public static Player Instance { get; private set; }
+    public static bool[] levelsCompleted;
     private string playerName;
     private Color color;
     private Difficulty skill;
@@ -16,6 +17,7 @@ public class Player : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            levelsCompleted = new bool[4];
             DontDestroyOnLoad(this);
             loadData();
         }

@@ -6,12 +6,14 @@ public enum States { Idle, Run, Attack, Die}
 
 public class BasicUnitAI : MonoBehaviour
 {
-    public AudioSource Sound_Hit;
     public float speed;
     public int dmg;
+    public float range;
+    public int scale;
     public Animator anim;
     public LayerMask layer;
     public GameObject explosion;
+    public AudioSource Sound_Hit;
 
     private BasicUnit unit;
     private Vector2 dir;
@@ -37,7 +39,7 @@ public class BasicUnitAI : MonoBehaviour
             Die();
         }
         UpdateState();
-        rayCast = Physics2D.Raycast(getRayCastPosition(), dir, 0.01f, layer);
+        rayCast = Physics2D.Raycast(getRayCastPosition(), dir, range, layer);
 
         //if nothing is being hit
         if (!(BaseTower.roundEnded) && rayCast.collider != null && oppositeTag(rayCast.collider))
@@ -83,20 +85,27 @@ public class BasicUnitAI : MonoBehaviour
         canFight = false;
         state = States.Die;
         StopCoroutine(fightCooldown());
-        explosion.transform.localScale = new Vector3(3, 3, 1);
+        explosion.transform.localScale = new Vector3(scale, scale, 1);
         Instantiate(explosion, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }
 
     bool oppositeTag(Collider2D col)
     {
-        if (unit.side == CurrentSide.Human && col.CompareTag("Duck"))
+        if (col != null)
         {
-            return true;
-        }
-        else if (unit.side == CurrentSide.Duck && col.CompareTag("Player"))
-        {
-            return true;
+            if (unit.side == CurrentSide.Human && col.CompareTag("Duck"))
+            {
+                return true;
+            }
+            else if (unit.side == CurrentSide.Duck && col.CompareTag("Player"))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         else
         {
@@ -168,9 +177,9 @@ public class BasicUnitAI : MonoBehaviour
     IEnumerator fightCooldown()
     {
         canFight = false;
-        yield return new WaitForSeconds(0.05f);
+        //yield return new WaitForSeconds(0.0f);
         Sound_Hit.PlayOneShot(Sound_Hit.clip, 0.5f);
-        yield return new WaitForSecondsRealtime(0.95f);
+        yield return new WaitForSecondsRealtime(1.0f);
         canFight = true;
     }
 
