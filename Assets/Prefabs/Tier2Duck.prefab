@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42fa8031d17975c4d91a121baedebd4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 120
+  health: 100
   price: 0
   side: 1
 --- !u!114 &2075967844111572114
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 635038d96738900499b43ac180996b1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.001
+  speed: 0.002
   dmg: 5
   range: 5
   scale: 3

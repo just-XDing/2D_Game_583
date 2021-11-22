@@ -113,7 +113,10 @@ public class BaseTowerControls : MonoBehaviour
         
         for (int j = (SceneManager.GetActiveScene().buildIndex - 3); j > 0; j--)
         {
-            ButtonToggle(j - 1);
+            if (j == 5)
+                continue;
+            else
+                ButtonToggle(j - 1);
         }
     }
 
