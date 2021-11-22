@@ -11,10 +11,12 @@ public class BaseTowerControls : MonoBehaviour
     public TextMeshProUGUI TMP_Victory;
     public SpriteRenderer towerColor;
     public BaseTower userTower;
+    public BaseTower enemyTower;
     public Button[] B_SummonList;
     public Button B_LevelsButton;
 
     public Slider S_HealthBar;
+    public Slider S_EnemyHealth;
     public TextMeshProUGUI DuccCoinDisplay;
     private bool canPress;
 
@@ -103,10 +105,12 @@ public class BaseTowerControls : MonoBehaviour
             else
             {
                 TMP_Victory.text = "YOU WIN\nGo back to the levels by clicking on the back button above";
+                Player.levelsCompleted[SceneManager.GetActiveScene().buildIndex - 4] = true;
             }
         }
+        S_EnemyHealth.value = enemyTower.health;
         S_HealthBar.value = userTower.health;
-    
+        
         for (int j = (SceneManager.GetActiveScene().buildIndex - 3); j > 0; j--)
         {
             ButtonToggle(j - 1);

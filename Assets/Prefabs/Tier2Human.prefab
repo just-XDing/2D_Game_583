@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 7604728943609264525}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.11, y: 0.68, z: -1.0261952}
-  m_LocalScale: {x: 1.1, y: 1.1, z: 1}
+  m_LocalScale: {x: 1.4, y: 1.4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -100,7 +100,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 20
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -181,14 +181,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 635038d96738900499b43ac180996b1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Sound_Hit: {fileID: 8675070229676054241}
   speed: 0.002
   dmg: 12
+  range: 0.2
+  scale: 4
   anim: {fileID: 8592838135083011291}
   layer:
     serializedVersion: 2
     m_Bits: 64
   explosion: {fileID: 9085383827175717268, guid: bf07f2828f38a0f42982a4e4f983e843, type: 3}
+  Sound_Hit: {fileID: 8675070229676054241}
 --- !u!82 &8675070229676054241
 AudioSource:
   m_ObjectHideFlags: 0
