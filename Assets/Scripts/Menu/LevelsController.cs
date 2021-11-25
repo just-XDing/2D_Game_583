@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class LevelsController : MonoBehaviour
 {
     Button B_Back;
+    Button B_Instructions;
     public Button[] B_Levels;
     // Start is called before the first frame update
     void Start()
@@ -17,9 +18,11 @@ public class LevelsController : MonoBehaviour
     void initializeControls()
     {
         B_Back = GameObject.Find("BackButton").GetComponent<Button>();
+        B_Instructions = GameObject.Find("Instructions").GetComponent<Button>();
         checkForCompletion();
 
         B_Back.onClick.AddListener(PressedBack);
+        B_Instructions.onClick.AddListener(PressedInstructions);
         //all of these buttons exist in a list. this list
         //is already attached to this script.
         //Initializing them in this function causes errors
@@ -60,6 +63,11 @@ public class LevelsController : MonoBehaviour
     void PressedBack()
     {
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+    }
+
+    void PressedInstructions()
+    {
+        SceneManager.LoadScene("InstructionsMenu", LoadSceneMode.Single);
     }
 
     void OpenLevel11()
