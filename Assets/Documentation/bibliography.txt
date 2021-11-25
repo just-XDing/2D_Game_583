@@ -1,0 +1,112 @@
+Tier 1 and 4 Duck: from user "Ulti" on OpenGameArt https://opengameart.org/users/ulti
+Tier 2 Duck: from user "Spring Spring" on OpenGameArt https://opengameart.org/content/penguin
+Tier 3 Duck: from user "Spring Spring" on OpenGameArt https://opengameart.org/content/crow-man-0
+
+
+Explosion: from user "Sogomn" on OpenGameArt https://opengameart.org/content/explosion-3
+Soul Explosion: from user "IndigoFenix" on OpenGameArt https://opengameart.org/content/soulsplode
+	-changed the color from red/orange to blue/cyan by Justin Ngo
+	
+Explosion Audio (Explosion.wav): from user "TeamAlpha" on OpenGameArt https://opengameart.org/content/8-bitnes-explosion-sound-effecs
+
+All Human Tier Sprites are from Sanderfrenken, LPC, and OpenGameArt
+
+
+
+
+=== FULL CREDITS FOR ALL OF THE HUMAN TIERS SHOW BELOW ===
+
+
+
+Tier 1 Human by Sanderfrenken:
+- body/male/human/white.png: by Stephen Challener (Redshrike), Johannes Sjölund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0. 
+    - https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles
+    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+
+- torso/chainmail/male/gray.png: by Johannes Sjölund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0. 
+    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+
+- weapon/slash/male/axe_2.png: by DarkwallLKE, Tuomo Untinen (reemax). License(s): CC-BY-SA 3.0, GPL 2.0, GPL 3.0. 
+    - https://opengameart.org/content/lpc-items-and-game-effects
+    - https://opengameart.org/content/lpc-axe
+	
+	
+	
+	
+Tier 2 Human by Sanderfrenken:
+- body/male/human/white.png: by Stephen Challener (Redshrike), Johannes Sjölund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0. 
+    - https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles
+    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+
+- beards/male/beard/black.png: by David Conway Jr. (JaidynReiman), Carlo Enrico Victoria (Nemisys). License(s): CC-BY-SA 3.0, GPL 3.0. 
+    - https://opengameart.org/content/lpc-brunet-mustache
+
+- feet/armor/male/4.png: by Michael Whitlock (bigbeargames), Matthew Krohn (makrohn), Johannes Sjölund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0. 
+    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+
+- legs/pants/male/black.png: by bluecarrot16, David Conway Jr. (JaidynReiman), Joe White, Matthew Krohn (makrohn), Johannes Sj?lund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0. 
+    - https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles
+    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+
+- torso/chainmail/male/gray.png: by Johannes Sjölund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0. 
+    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+
+- shield/male/crusader.png: by bluecarrot16, Sander Frenken (castelonia). License(s): OGA-BY 3.0. 
+    - https://opengameart.org/content/lpc-shields
+
+- hat/helmet/male/barbuta.png: by bluecarrot16, Sander Frenken (castelonia). License(s): OGA-BY 3.0. 
+    - https://opengameart.org/content/lpc-helmets
+
+- weapon/slash/male/warhammer.png: by DarkwallLKE, Tuomo Untinen (reemax). License(s): CC-BY-SA 3.0, GPL 2.0, GPL 3.0. 
+    - https://opengameart.org/content/lpc-items-and-game-effects
+    - https://opengameart.org/content/lpc-warhammer
+	
+	
+	
+	
+Tier 3 Human by Sanderfrenken:
+- body/male/human/white.png: by Stephen Challener (Redshrike), Johannes Sjölund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0. 
+    - https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles
+    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+
+- body/prosthesis/hook/male/mask/hook.png: by bluecarrot16. License(s): CC-BY-SA 3.0. 
+    - https://opengameart.org/content/lpc-pirates
+
+- body/prosthesis/hook/male/hook.png: by bluecarrot16. License(s): CC-BY-SA 3.0. 
+    - https://opengameart.org/content/lpc-pirates
+
+- feet/armor/male/9.png: by Michael Whitlock (bigbeargames), Matthew Krohn (makrohn), Johannes Sjölund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0. 
+    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+
+- legs/armour/male/9.png: by Michael Whitlock (bigbeargames), Matthew Krohn (makrohn), Johannes Sjölund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0. 
+    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+
+- torso/armour/plate/male/12.png: by Michael Whitlock (bigbeargames), Matthew Krohn (makrohn), Johannes Sjölund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0. recolor of torso/clothes/leather/chest_female.png
+    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+    - https://opengameart.org/content/lpc-combat-armor-for-women
+
+- arms/male/3.png: by Michael Whitlock (bigbeargames), Johannes Sjölund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0. 
+
+
+
+Tier 4 Human by Sanderfrenken:
+- body/female/human/white.png: by Stephen Challener (Redshrike), Johannes Sjölund (wulax), Matthew Krohn (makrohn). License(s): CC-BY-SA 3.0, GPL 3.0. 
+    - https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles
+    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+    - https://opengameart.org/content/lpc-ladies
+
+- legs/armour/female/9.png: by Michael Whitlock (bigbeargames), Matthew Krohn (makrohn), Johannes Sjölund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0. 
+    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+    - https://opengameart.org/content/lpc-combat-armor-for-women
+
+- feet/boots/female/brown.png: by Nila122, Johannes Sjölund (wulax), Stephen Challener (Redshrike). License(s): CC-BY-SA 3.0, GPL 2.0, GPL 3.0. 
+    - https://opengameart.org/content/lpc-clothes-and-hair
+
+- torso/armour/legion/female/gold.png: by Nila122, David Conway Jr. (JaidynReiman), Matthew Krohn (makrohn), Johannes Sjölund (wulax). License(s): CC-BY-SA 3.0, GPL 2.0, GPL 3.0. 
+    - https://opengameart.org/content/lpc-roman-armor
+
+- shoulders/legion/female/gold.png: by Nila122, David Conway Jr. (JaidynReiman), Matthew Krohn (makrohn), Johannes Sjölund (wulax). License(s): CC-BY-SA 3.0, GPL 2.0, GPL 3.0. 
+    - https://opengameart.org/content/lpc-roman-armor
+
+- bauldron/female/brown.png: by Nila122. License(s): CC-BY-SA 3.0, GPL 2.0, GPL 3.0. 
+    - https://opengameart.org/content/more-lpc-clothes-and-hair
