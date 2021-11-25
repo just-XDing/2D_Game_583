@@ -38,14 +38,24 @@ public class BasicUnitAI : MonoBehaviour
         dir = unit.side == CurrentSide.Human ? Vector2.right : Vector2.left;
     }
 
-    // Update is called once per frame
-    void Update()
+    /*
+     * recently discovered that Update() was per frame (even despite not reading the comment
+     * that Unity had originally)
+     * 
+     * so everything from Update() was moved to FixedUpdate.
+     */
+    private void Update()
     {
         //check if the unit has no health at least
         if (unit.health <= 0)
         {
             Die();
         }
+    }
+
+    // This one only runs purely at 50 FPS
+    void FixedUpdate()
+    {
         //keep updating the state of the unit and its raycast
         UpdateState();
         //this is used to determine the range of the unit.
