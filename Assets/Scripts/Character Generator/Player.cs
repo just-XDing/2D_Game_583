@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     private string playerName;
     private Color color;
     private Difficulty skill;
+
+    // "constructor"
     public void Awake()
     {
         //if there is no instance of a DNDPlayer, make a new one, and load its data.
@@ -35,6 +37,7 @@ public class Player : MonoBehaviour
         skill = Difficulty.Easy;
     }
 
+    //setters and getters for instance variables
     public void setName(string n) { playerName = n; }
     public string getName() { return playerName; }
 

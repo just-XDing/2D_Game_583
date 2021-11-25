@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+//an enum to keep track of the difficulty of the game
+//this is also used for tweaking difficulty values.
 public enum Difficulty : int { Easy = 1, Medium = 2, Hard = 3 };
 
 public class MainMenu : MonoBehaviour
@@ -63,6 +65,7 @@ public class MainMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //need the player instnace to exist or else button no work
         if (Player.Instance == null)
         {
             B_Levels.interactable = false;

@@ -14,6 +14,7 @@ public class ExplosionController : MonoBehaviour
 
     IEnumerator delay()
     {
+        //play a sound, and destroy itself
         Sound_Death.PlayOneShot(Sound_Death.clip, 0.5f);
         yield return new WaitForSeconds(seconds);
         Destroy(this.gameObject);

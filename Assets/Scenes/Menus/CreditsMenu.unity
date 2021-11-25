@@ -363,14 +363,14 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1335216101}
   - {fileID: 1934519707}
+  - {fileID: 1335216101}
   m_Father: {fileID: 930965995}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1080}
+  m_AnchoredPosition: {x: 0, y: 2000}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &686192393
@@ -676,12 +676,12 @@ RectTransform:
   m_LocalScale: {x: 2.0801737, y: 2.0801737, z: 2.0801737}
   m_Children: []
   m_Father: {fileID: 686192392}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 332, y: -2.284}
-  m_SizeDelta: {x: 250, y: 420}
+  m_AnchoredPosition: {x: 332, y: -401.815}
+  m_SizeDelta: {x: 250, y: 804.132}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1335216102
 MonoBehaviour:
@@ -703,7 +703,46 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Justin Ngo
+  m_text: 'Justin Ngo
+
+
+    Justin Ngo
+
+
+    Justin Ngo
+
+
+    Justin Ngo
+
+
+    Justin
+    Ngo
+
+
+    Justin Ngo
+
+
+    Justin Ngo
+
+
+    Justin Ngo
+
+
+    Justin Ngo
+
+
+    Unity
+    2020.3 LTS17f1
+
+
+    Ulti, Spring Spring (opengameart.org)
+
+
+    Sanderfrenken,
+    LPC (Liberated Pixel Cup), and opengameart.org
+
+
+    GIMP, Paint.Net, Audacity'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -730,8 +769,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -930,12 +969,12 @@ RectTransform:
   m_LocalScale: {x: 2.0801737, y: 2.0801737, z: 2.0801737}
   m_Children: []
   m_Father: {fileID: 686192392}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -293, y: -0.00001812}
-  m_SizeDelta: {x: 250, y: 420}
+  m_AnchoredPosition: {x: -381.717, y: -415.952}
+  m_SizeDelta: {x: 335.298, y: 819.92}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1934519708
 MonoBehaviour:
@@ -957,7 +996,48 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Game Creator
+  m_text: 'Producer
+
+
+    Production Manager
+
+
+    Productions Coordinator
+
+
+    Game
+    Designer
+
+
+    Systems/IT Coordinator
+
+
+    Programmer
+
+
+    Technical Artist
+
+
+    Audio
+    Engineer
+
+
+    UX Tester
+
+
+    Engine
+
+
+    Duck Sprites
+
+
+
+    Human Sprites
+
+
+
+
+    Tools'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}

@@ -17,10 +17,12 @@ public class LevelsController : MonoBehaviour
     void initializeControls()
     {
         B_Back = GameObject.Find("BackButton").GetComponent<Button>();
-
         checkForCompletion();
 
         B_Back.onClick.AddListener(PressedBack);
+        //all of these buttons exist in a list. this list
+        //is already attached to this script.
+        //Initializing them in this function causes errors
         B_Levels[0].onClick.AddListener(OpenLevel11);
         B_Levels[1].onClick.AddListener(OpenLevel12);
         B_Levels[2].onClick.AddListener(OpenLevel13);
@@ -28,6 +30,18 @@ public class LevelsController : MonoBehaviour
         B_Levels[4].onClick.AddListener(OpenLevel15);
     }
 
+
+    /*
+     * checkForCompletion()
+     * 
+     * This function serves as a hard lock for the buttons
+     * in the levels menu. If the previous level has
+     * not been completed, this function will disable the
+     * interactability of that button.
+     * 
+     * TL;DR: this basically locks the next levels unless the
+     * player completes the previous one.
+     */
     void checkForCompletion()
     {
         for (int i = 1; i <= Player.levelsCompleted.Length; i++)
